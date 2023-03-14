@@ -1,0 +1,26 @@
+[
+	{
+		"id" : 1,
+		"nombre" : "Carlos",
+		"aPaterno" : "Nolazco",
+		"aMaterno" : "Lagunas",
+		"correo" : "cnolazco@ucol.mx",
+		"rol" : "1"
+	},
+	{
+		"id" : 2,
+		"nombre" : "Mauricio",
+		"aPaterno" : "Cardenaz",
+		"aMaterno" : "Hernandez",
+		"correo" : "mcardenaz@ucol.mx",
+		"rol" : "2"
+	},
+	{
+		"id" : 3,
+		"nombre" : "Braulio",
+		"aPaterno" : "Gutierrez",
+		"aMaterno" : "Bejarano",
+		"correo" : "bgutierrez@ucol.mx",
+		"rol" : "2"
+	}
+]
