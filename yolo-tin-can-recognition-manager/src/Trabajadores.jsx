@@ -6,7 +6,9 @@ function Trabajadores(){
 	return(
 		<>
 			<Nav/>
+
 			<center>
+			<a className="btn btn-success mx-auto" href="/registro">Registrar trabajador</a>
 			<div style={{ width: '80%' }}>
 				<Table striped bordered>
 			      <thead>
