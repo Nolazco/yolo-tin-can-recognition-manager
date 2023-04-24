@@ -1,16 +1,16 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Cam from './Camara';
-import Login from './Login';
+import Login, {upload as u} from './Login';
 import Opc from './Opciones';
-import Trab from './Trabajadores';
+import Trab, {load} from './Trabajadores';
 import Reg, {upload as up} from './Register';
 
 const routes = createBrowserRouter([
-  { path: '/', element: <Login /> },
+  { path: '/', element: <Login />, action: u},
   { path: '/manager', element: <Cam />},
   { path: '/opciones', element: <Opc/>},
-  { path: '/trabajadores', element: <Trab/>},
+  { path: '/trabajadores', element: <Trab/>, loader: load},
   { path: '/registro', element: <Reg/>, action: up}
 ]);
 

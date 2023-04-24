@@ -1,5 +1,4 @@
 import {useRef, useEffect, useCallback} from 'react';
-import Nav from './Nav';
 
 function Camara(){
 	const vid = useRef(null);
@@ -14,7 +13,6 @@ function Camara(){
 
 	return(
 		<>
-			<Nav/>
 			<div className="row">
 				<div className="col-md-6">
 					<video autoPlay ref={vid}/>

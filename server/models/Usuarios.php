@@ -10,11 +10,12 @@
 			$this->conection = ConectionProvider::getInstance();
 		}
 
-		function login($correo, $password){
-			$obtencion = "SELECT nombre, apellidoP, apellidoM, telefono, correo, rol, estatus FROM users WHERE correo = $correo AND password = $password";
-			$resultado = mysqli_query($this.conection->mysqli,$obtencion);
-    		
-    		$success = ($resultado->num_rows > 0) ? True : False ;
+		function login($usuario, $correo, $password){
+			$obtencion = "SELECT nombre, apellidoP, apellidoM, telefono, correo, rol, estatus, password FROM users WHERE nombre = '{$usuario}' AND correo = '{$correo}'";
+			$resultado = mysqli_query($this->conection->mysqli,$obtencion);
+			$resultado = $resultado->fetch_all(MYSQLI_ASSOC);
+    		    		
+    		$success = password_verify($password, $resultado[0]['password']);
 
     		return $success;
 		}
@@ -22,7 +23,7 @@
 		function load_users(){
 
 			$obtencion = "SELECT nombre, apellidoP, apellidoM, telefono, correo, rol, estatus FROM users";
-    		$resultado = mysqli_query($this.conection->mysqli,$obtencion);
+    		$resultado = mysqli_query($this->conection->mysqli,$obtencion);
     		
     		return $resultado->fetch_all(MYSQLI_ASSOC);
 		}

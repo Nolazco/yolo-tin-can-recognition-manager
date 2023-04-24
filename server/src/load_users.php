@@ -3,4 +3,9 @@
 
 	$modelo = new Usuarios;
 
-	$modelo->load_users();
+	$users = $modelo->load_users();
+
+	echo json_encode([
+		'type' => 'data',
+		'data' => $users
+	]);

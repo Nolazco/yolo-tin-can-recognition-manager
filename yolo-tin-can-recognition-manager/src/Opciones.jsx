@@ -1,9 +1,6 @@
-import Nav from './Nav';
-
 function Opciones(){
 	return(
 		<>
-			<Nav/>
 			<div className="mb-3 mx-auto" style={{ width: '50%' }}>
 				<center>
 					<h2 className="mx-auto">Opciones</h2><br/>

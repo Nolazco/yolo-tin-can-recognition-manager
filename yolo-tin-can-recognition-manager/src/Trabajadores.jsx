@@ -1,12 +1,10 @@
-import Users from './data/users.json';
 import Table from 'react-bootstrap/Table';
-import Nav from './Nav';
+import {useLoaderData} from 'react-router-dom';
 
 function Trabajadores(){
+	let useData = useLoaderData();
 	return(
 		<>
-			<Nav/>
-
 			<center>
 			<a className="btn btn-success mx-auto" href="/registro">Registrar trabajador</a>
 			<div style={{ width: '80%' }}>
@@ -21,13 +19,13 @@ function Trabajadores(){
 			        </tr>
 			      </thead>
 			      <tbody>
-			      {Users.map(user => {
+			      {useData.data.map(user => {
 			      	return(
 			      	<tr key={user.id}>
 			      	  <td>{user.id}</td>
 			          <td>{user.nombre}</td>
-			          <td>{user.aPaterno}</td>
-			          <td>{user.aMaterno}</td>
+			          <td>{user.apellidoP}</td>
+			          <td>{user.apellidoM}</td>
 			          <td>{user.correo}</td>
 			        </tr>
 			      	)
@@ -38,6 +36,10 @@ function Trabajadores(){
 		    </center>
 		</>
 	);
+}
+
+export async function load({params}){
+	return fetch("http://localhost:8080/load_users");
 }
 
 export default Trabajadores;
