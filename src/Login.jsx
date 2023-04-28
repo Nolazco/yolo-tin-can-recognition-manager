@@ -42,7 +42,7 @@ function Login() {
 		                <InputLabel htmlFor="password-login">Contraseña</InputLabel>
 		                <Input id="password-login" name="password" type="password" />
 		            </FormControl>
-		            <FormControlLabel control={<Switch defaultChecked color="default" />} label="Mantener la sesión iniciada" />
+		            <FormControlLabel control={<Switch defaultChecked />} label="Mantener la sesión iniciada" />
 		            <Link href="#" underline="always">
 					  {'¿Olvidaste tu contraseña?'}
 					</Link>
