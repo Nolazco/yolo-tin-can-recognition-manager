@@ -7,7 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Input from '@mui/material/Input';
 import Tuna from './TunaLogo';
-import {redirect} from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 
 function Login() {
     return (
