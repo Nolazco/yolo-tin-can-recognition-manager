@@ -1,6 +1,54 @@
 body {
-  background-image: url('');
+  background-image: url('img/possibleBackgroundsLogin/b.png');
   background-size: cover;
   background-repeat: no-repeat;
-  backdrop-filter: blur(100px);
+  backdrop-filter: blur(3px);
+}
+
+.fondo {
+    background-image: url("/yolo-tin-can-recognition-manager/src/img/possibleBackgroundsLogin/fondo-4k.jpg");
+    background-size: cover;
+}
+
+.camara {
+    display: block;
+    margin: auto;  
+}
+
+.barra {
+    margin-bottom: 20px;
+    margin-top: -21px;
+}
+
+.texto {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.esp-cam {
+    width: 47.4%;
+    height: 480px;
+    display: block;
+    margin: auto;
+    background-color: rgb(138, 232, 255);
+    border: 5px solid rgb(0, 252, 239);
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 1300px) {
+
+    .fondo {
+        width: 100%;
+    }
+
+    .camara {
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    .esp-cam {
+        width: 95%;
+        height: 50%;
+    }
 }
