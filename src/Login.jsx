@@ -10,10 +10,9 @@ import TinmanLogo from './TinmanLogo';
 import {redirect} from 'react-router-dom';
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import { indigo } from '@mui/material/colors';
 import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
-
+import { blue } from '@mui/material/colors';
 
 function Login() {
     return (
@@ -25,7 +24,7 @@ function Login() {
 		    'padding': '10px'
 		}}>
 		<Paper elevation={3}>
-		    <Card variant="outlined">
+		    <Card style={{backgroundColor: blue[100]}} variant="outlined">
 		        <CardContent>
 		            <TinmanLogo size={200} center={true}/>
 		            <FormControl required fullWidth margin="normal">

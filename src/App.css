@@ -5,3 +5,8 @@ body {
   backdrop-filter: blur(3px);
   height: 100%;
 }
+
+#root {
+  display: flex;
+  height: 100vh;
+}
