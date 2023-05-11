@@ -45,6 +45,11 @@ function Login() {
 		            <Link href="#" underline="always">
 					  {'¿Olvidaste tu contraseña?'}
 					</Link>
+					<FormControl fullWidth margin="normal">
+						<Link href="#" underline="always">
+					  {'¡Registrate aquí!'}
+					</Link>
+					</FormControl>
 		        </CardContent>
 		        <CardActions>
 		            <Button variant="contained" type="submit" style={{ 'margin': 'auto' }}>Iniciar sesion</Button>
@@ -66,7 +71,7 @@ export async function upload({params, request}){
 
 	let resp = await login_request.json();
 
-	if(resp.ok == false){
+	if(resp.ok === false){
 		alert("Datos incorrectos")
 		return 0;
 	}else{
