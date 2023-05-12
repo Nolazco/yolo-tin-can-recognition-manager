@@ -1,5 +1,5 @@
 body {
-  background-image: url('img/possibleBackgroundsLogin/a.png');
+  background-image: url('/src/img/a.png');
   background-size: cover;
   background-repeat: no-repeat;
   backdrop-filter: blur(3px);
