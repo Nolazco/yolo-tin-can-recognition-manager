@@ -26,7 +26,7 @@ function Login() {
 		}}>
 		<Paper elevation={3}>
 		    <Card variant="outlined">
-		        <CardContent>
+		    	<CardContent>
 		            <TinmanLogo size={200} center={true}/>
 		            <FormControl required fullWidth margin="normal">
 		                <InputLabel htmlFor="usuario-login">Usuario</InputLabel>
@@ -67,7 +67,7 @@ export async function upload({params, request}){
 
 	let resp = await login_request.json();
 
-	if(resp.ok == false){
+	if(resp.ok === false){
 		alert("Datos incorrectos")
 		return 0;
 	}else{
