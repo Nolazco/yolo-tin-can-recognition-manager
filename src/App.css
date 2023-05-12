@@ -19,7 +19,7 @@ body {
 
 .camara {
     display: block;
-    margin: auto; 
+    margin: auto;
 }
 
 .esp-cam {
@@ -28,6 +28,6 @@ body {
     display: block;
     margin: auto;
     background-color: rgb(138, 232, 255);
-    border: 5px solid rgb(0, 252, 239);
+    border: solid 5px black;
     border-radius: 10px;
 }

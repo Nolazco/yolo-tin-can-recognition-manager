@@ -30,6 +30,7 @@ function Camara(){
 	<>
 	
 	<TinmanLogo size={100} center={true}/>
+	
 	<div class="stroke">
 		<DividerText />
 	</div>
