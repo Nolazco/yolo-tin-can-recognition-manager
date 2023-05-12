@@ -12,6 +12,40 @@ import CardContent from '@mui/material/CardContent';
 import TinmanLogo from './TinmanLogo';
 import { Form } from 'react-router-dom';
 
+/************* Declaración de la camara*/
+
+function Camara(){
+	const vid = useRef(null);
+	const openCamera = useCallback(async () => {
+		const stream = await navigator.mediaDevices.getUserMedia({video : true});
+		vid.current.srcObject = stream;
+	},[vid]);
+	
+	useEffect(() => {
+		openCamera();
+	});
+
+	return( /************* Cuerpo del programa */
+	<>
+	
+	<TinmanLogo size={200} center={true}/>
+
+	<div className='rowCam'>
+		<div class="esp-cam">
+			<video class="camara" autoPlay ref={vid}/>
+		</div>
+		<BasicTable />
+  </div>
+
+	</>
+
+	);
+
+}
+export default Camara;
+
+/************* Declaración de funciones: Tabla, datos de la tabla, rows */
+
 function createData(
   Name: string,
   Wrong: number,
@@ -28,50 +62,6 @@ const rows = [
   createData('Cupcake', 305, 3.7, 67, 4.3),
   createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
-
-
-function Camara(){
-	const vid = useRef(null);
-	const openCamera = useCallback(async () => {
-		const stream = await navigator.mediaDevices.getUserMedia({video : true});
-		vid.current.srcObject = stream;
-	},[vid]);
-	
-	useEffect(() => {
-		openCamera();
-	});
-
-	return(
-	<>
-		<Form method="post" action="/" style={{
-		    'width': '500px',
-		    'margin': 'auto',
-		    'marginTop': '2em',
-		    'padding': '10px'
-		}}>
-		<Paper elevation={3}>
-		    <Card variant="outlined">
-		        <CardContent center={true}>
-		            <TinmanLogo size={200} center={true}/>
-		        </CardContent>
-		    </Card>
-		</Paper>
-		</Form>
-
-
-
-	<div class="esp-cam">
-		<video class="camara" autoPlay ref={vid}/>
-	</div>
-	<BasicTable />
-
-	</>
-
-	);
-
-}
-export default Camara;
-
 
 function BasicTable() {
   return (
