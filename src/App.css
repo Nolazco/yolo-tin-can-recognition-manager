@@ -1,0 +1,33 @@
+body {
+  background-image: url('/src/img/a.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(3px);
+}
+
+.rowCam{
+  display:flex;
+  flex-direction:row;
+}
+
+.stroke {
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+/**** css de blacktiibi  */
+
+.camara {
+    display: block;
+    margin: auto;
+}
+
+.esp-cam {
+    width: 47.4%;
+    height: 480px;
+    display: block;
+    margin: auto;
+    background-color: rgb(138, 232, 255);
+    border: solid 5px black;
+    border-radius: 10px;
+}

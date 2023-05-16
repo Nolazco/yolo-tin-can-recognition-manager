@@ -6,8 +6,13 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Input from '@mui/material/Input';
-import Tuna from './TunaLogo';
-import { redirect } from 'react-router-dom';
+import TinmanLogo from './TinmanLogo';
+import {redirect} from 'react-router-dom';
+import Switch from '@mui/material/Switch';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Link from '@mui/material/Link';
+import Paper from '@mui/material/Paper';
+import { blue } from '@mui/material/colors';
 
 function Login() {
     return (
@@ -18,9 +23,10 @@ function Login() {
 		    'marginTop': '2em',
 		    'padding': '10px'
 		}}>
-		    <Card variant="outlined">
+		<Paper elevation={3}>
+		    <Card style={{backgroundColor: blue[100]}} variant="outlined">
 		        <CardContent>
-		            <Tuna size={72} center={true}/>
+		            <TinmanLogo size={200} center={true}/>
 		            <FormControl required fullWidth margin="normal">
 		                <InputLabel htmlFor="usuario-login">Usuario</InputLabel>
 		                <Input id="usuario-login" name="user" type="text" />
@@ -35,11 +41,21 @@ function Login() {
 		                <InputLabel htmlFor="password-login">Contraseña</InputLabel>
 		                <Input id="password-login" name="password" type="password" />
 		            </FormControl>
+		            <FormControlLabel control={<Switch defaultChecked />} label="Mantener la sesión iniciada" />
+		            <Link href="#" underline="always">
+					  {'¿Olvidaste tu contraseña?'}
+					</Link>
+					<FormControl fullWidth margin="normal">
+						<Link href="#" underline="always">
+					  {'¡Registrate aquí!'}
+					</Link>
+					</FormControl>
 		        </CardContent>
 		        <CardActions>
 		            <Button variant="contained" type="submit" style={{ 'margin': 'auto' }}>Iniciar sesion</Button>
 		        </CardActions>
 		    </Card>
+		</Paper>
 		</Form>
 		</>
     );
@@ -55,7 +71,7 @@ export async function upload({params, request}){
 
 	let resp = await login_request.json();
 
-	if(resp.ok == false){
+	if(resp.ok === false){
 		alert("Datos incorrectos")
 		return 0;
 	}else{
