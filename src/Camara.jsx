@@ -37,9 +37,8 @@ function Camara(){
 
 	<div className='rowCam'>
 
-		<div class="esp-cam">
-			<video class="camara" autoPlay ref={vid}/>
-		</div>
+		
+			<video class="esp-cam" autoPlay ref={vid}/>
 
 		<BasicTable />
 
@@ -95,8 +94,6 @@ const rows = [
   createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
   createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
   createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
 
 function BasicTable() {
@@ -106,11 +103,8 @@ function BasicTable() {
 	      <Table sx={{ minWidth: 650 }} aria-label="simple table">
 	        <TableHead>
 	          <TableRow>
-	            <TableCell>Empleado/a</TableCell>
-	            <TableCell align="right">Hour</TableCell>
-	            <TableCell align="right">Wrong</TableCell>
-	            <TableCell align="right">Right&nbsp;(g)</TableCell>
-	            <TableCell align="right">Total&nbsp;(g)</TableCell>
+	            <TableCell>Estado</TableCell>
+	            <TableCell align="left">Totales</TableCell>
 	          </TableRow>
 	        </TableHead>
 	        <TableBody>
@@ -122,10 +116,7 @@ function BasicTable() {
 	              <TableCell component="th" scope="row">
 	                {row.Name}
 	              </TableCell>
-	              <TableCell align="right">{row.Hour}</TableCell>
-	              <TableCell align="right">{row.Wrong}</TableCell>
-	              <TableCell align="right">{row.Right}</TableCell>
-	              <TableCell align="right">{row.Total}</TableCell>
+	              <TableCell align="left">{row.Hour}</TableCell>
 	            </TableRow>
 	          ))}
 	        </TableBody>

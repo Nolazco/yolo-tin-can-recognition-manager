@@ -30,29 +30,29 @@ return (
 					  REGISTRO
 					</Typography>		            
 {/* Nombre */} 
-		            <FormControl required fullWidth margin="normal">
+		            <FormControl required margin="normal">
 		                <InputLabel htmlFor="usuario-login">Nombre</InputLabel>
 		                <Input type="text" required placeholder="Nombre" name="nombre" id="nombre"/>
-		            </FormControl>
-		            <FormControl required fullWidth margin="normal">
+		            </FormControl>&nbsp;&nbsp;&nbsp;
+		            <FormControl required margin="normal">
 		                <InputLabel htmlFor="usuario-login">apellido materno</InputLabel>
 		                <Input type="text" required placeholder="Apellido materno" name="apellidoM" id="apellidoM"/>
 		            </FormControl>		            
-		            <FormControl required fullWidth margin="normal">
+		            <FormControl required margin="normal">
 		                <InputLabel htmlFor="usuario-login">apellido paterno</InputLabel>
 		                <Input type="text" required placeholder="Apellido paterno" name="apellidoP" id="apellidoP"/>
-		            </FormControl>
+		            </FormControl>&nbsp;&nbsp;&nbsp;
 {/* Correo Y TELEFONO*/} 
-		            <FormControl required fullWidth margin="normal">
+		            <FormControl required margin="normal">
 		                <InputLabel htmlFor="correo-login">Correo</InputLabel>
 		                <Input type="email" required placeholder="Correo electronico" name="correo" id="correo"/>
 		            </FormControl>
-		            <FormControl required fullWidth margin="normal">
+		            <FormControl required margin="normal">
 		                <InputLabel htmlFor="correo-login">Telefono</InputLabel>
 		                <Input type="text" pattern="(\+\d{1,3})?\d{10}"  required placeholder="Telefono" name="telefono" id="telefono"/>
-		            </FormControl>		            
+		            </FormControl>&nbsp;&nbsp;&nbsp;
 {/* Contraseña/Confirmación */} 
-		            <FormControl required fullWidth margin="normal">
+		            <FormControl required margin="normal">
 		                <InputLabel htmlFor="password-login">Contraseña</InputLabel>
 		                <Input type="password" required placeholder="Ej.: 1234" name="password" id="password"/>
 		            </FormControl>
