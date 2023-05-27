@@ -31,17 +31,17 @@ function Camara(){
 	
 	<TinmanLogo size={100} center={true}/>
 	
-	<div class="stroke">
+	<div className="stroke">
 		<DividerText />
 	</div>
 
 	<div className='rowCam'>
-
-		
-			<video class="esp-cam" autoPlay ref={vid}/>
-
-		<BasicTable />
-
+			{/*<video class="esp-cam" autoPlay ref={vid}/>*/}
+			<img className="esp-cam" src="http://localhost:8080"/>
+  </div>
+  <br />
+  <div style={{padding : '1pc'}}>
+  	<BasicTable />
   </div>
 
 	</>
@@ -82,29 +82,30 @@ function DividerText() {
 
 function createData(
   Name: string,
-  Hour: number,
-  Wrong: number,
-  Right: number,
-  Total: number,
-) {
-  return { Name, Hour, Wrong, Right, Total };
+  Totales: number,
+  Porcentajes: number
+){
+  return { Name, Totales, Porcentajes };
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
+  createData('Buen estado', 159, 25),
+  createData('Daño bajo', 237, 25),
+  createData('Daño medio', 262, 25),
+  createData('Daño grave', 262, 25),
+  createData('Total', 262, 100),
 ];
 
 function BasicTable() {
   return (
-  	<Paper elevation={3}>
+  	<Paper elevation={20}>
 	    <TableContainer component={Paper}>
 	      <Table sx={{ minWidth: 650 }} aria-label="simple table">
 	        <TableHead>
 	          <TableRow>
-	            <TableCell>Estado</TableCell>
-	            <TableCell align="left">Totales</TableCell>
+	            <TableCell align="left">Estado</TableCell>
+	            <TableCell align="center">Totales</TableCell>
+	            <TableCell align="center">Porcentajes</TableCell>
 	          </TableRow>
 	        </TableHead>
 	        <TableBody>
@@ -113,10 +114,11 @@ function BasicTable() {
 	              key={row.Name}
 	              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
 	            >
-	              <TableCell component="th" scope="row">
+	              <TableCell align="left" component="th" scope="row">
 	                {row.Name}
 	              </TableCell>
-	              <TableCell align="left">{row.Hour}</TableCell>
+	              <TableCell align="center">{row.Totales}</TableCell>
+								<TableCell align="center">{row.Porcentajes}%</TableCell>
 	            </TableRow>
 	          ))}
 	        </TableBody>
