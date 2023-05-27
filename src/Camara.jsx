@@ -31,15 +31,16 @@ function Camara(){
 	
 	<TinmanLogo size={100} center={true}/>
 	
-	<div class="stroke">
+	<div className="stroke">
 		<DividerText />
 	</div>
 
 	<div className='rowCam'>
-			<video class="esp-cam" autoPlay ref={vid}/>
+			{/*<video class="esp-cam" autoPlay ref={vid}/>*/}
+			<img className="esp-cam" src="http://localhost:8080"/>
   </div>
   <br />
-  <div style={{padding : '1pc'}} center={true}>
+  <div style={{padding : '1pc'}}>
   	<BasicTable />
   </div>
 
