@@ -1,0 +1,34 @@
+{
+  "buenas": {
+    "-NW_gQG8dwIB8INsQrxo": {
+      "fecha": "2023-05-28T22:08:44.521311",
+      "promedio": 0.030612244897959183
+    },
+    "-NW_gdsZLeuDTOB6Ti6w": {
+      "fecha": "2023-05-28T22:09:44.562444",
+      "promedio": 0
+    },
+    "-NW_gsXFKFlPkCyhEfSM": {
+      "fecha": "2023-05-28T22:10:44.562320",
+      "promedio": 0
+    },
+    "fecha": "00/00/0000",
+    "promedio": 0
+  },
+  "malas": {
+    "-NW_gQJhXxECQPNbx9fR": {
+      "fecha": "2023-05-28T22:08:44.521311",
+      "promedio": 0.9693877551020408
+    },
+    "-NW_gdwkmFb9BJ6_Z6Dq": {
+      "fecha": "2023-05-28T22:09:44.562444",
+      "promedio": 1
+    },
+    "-NW_gs_zpWuNk9OVpqOr": {
+      "fecha": "2023-05-28T22:10:44.562320",
+      "promedio": 1
+    },
+    "fecha": "00/00/0000",
+    "promedio": 0
+  }
+}

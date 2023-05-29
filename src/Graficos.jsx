@@ -1,12 +1,38 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import { VictoryBar, VictoryChart, VictoryAxis,
-        VictoryTheme, VictoryStack, VictoryLine } from 'victory';	
-
+        VictoryTheme, VictoryStack, VictoryLine } from 'victory';
+import {useState, useEffect} from "react";
+import { app as firebase, db }  from "./firebase";
 /************* Declaración graficos*/
 
 function Graficos(){
+	let data = useState([]);
+  let good_ref = firebase.database().ref("/buenas");
 
+   useEffect(() => {
+    // Obtén una referencia a la ubicación de los datos en la base de datos
+    const database = firebase.database();
+    const dataRef = database.ref('/buenas');
+
+    // Suscríbete a los cambios en los datos
+    const onDataChange = snapshot => {
+      // Obtiene los datos en un objeto
+      const data = snapshot.val();
+      React.setData(data);
+      console.log(data);
+    };
+
+    dataRef.on('value', onDataChange);
+
+    // Limpia la suscripción cuando el componente se desmonta
+    return () => {
+      dataRef.off('value', onDataChange);
+    };
+  }, []);
+
+
+  setInterval(useEffect, 1000 * 60)
 	return( /************* Cuerpo del programa */
 	<>
 		<Box style={{
@@ -27,6 +53,19 @@ function Graficos(){
 			      { x: 3, y: 5 },
 			      { x: 4, y: 4 },
 			      { x: 5, y: 7 }
+			    ]}
+			/>
+			<VictoryLine
+			    style={{
+			      data: { stroke: "#47f" },
+			      parent: { border: "1px solid #ccc"}
+			    }}
+			    data={[
+			      { x: 4, y: 9 },
+			      { x: 1, y: 8 },
+			      { x: 9, y: 1 },
+			      { x: 4, y: 2 },
+			      { x: 1, y: 4 }
 			    ]}
 			/>
 			</VictoryChart>
