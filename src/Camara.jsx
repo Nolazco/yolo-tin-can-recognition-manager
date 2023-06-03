@@ -20,7 +20,7 @@ function Camara(){
 
 	<div className='rowCam'>
 			{/*<video class="esp-cam" autoPlay ref={vid}/>*/}
-			<img className="esp-cam" src="http://localhost:8080"/>
+		<img className="esp-cam" src="http://localhost:8080"/>
   </div>
  
 	</>

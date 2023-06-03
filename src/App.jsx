@@ -4,8 +4,6 @@ import Camara from './Camara.jsx';
 import Graficos from './Graficos.jsx';
 import React from "react";
 import MainApp from "./MainApp";
-import Firebase from "firebase";
-import { onValue, ref } from "firebase/database";
 
 
 const routes = createBrowserRouter([
@@ -18,8 +16,6 @@ const routes = createBrowserRouter([
 
 
 function App() {
-
-  Firebase.initializeApp(Firebase);
 
   return (
     <RouterProvider router={routes} />
