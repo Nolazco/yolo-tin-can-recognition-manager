@@ -24,7 +24,7 @@ function Camara() {
   return (
     <>
       <div className='rowCam'>
-        <video className="bSlate" autoPlay ref={vid} />
+        <img className="bSlate" src="http://localhost:8080" />
       </div>
     </>
   );
