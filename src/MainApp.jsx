@@ -1,6 +1,7 @@
-import { AppBar, Tabs, Tab } from "@mui/material";
-import { Outlet, Link, matchPath, useLocation, NavLink } from "react-router-dom";
-import TinmanLogo from "./TinmanLogo.jsx";
+import React from 'react';
+import { AppBar, Tabs, Tab } from '@mui/material';
+import { Outlet, Link, matchPath, useLocation, NavLink } from 'react-router-dom';
+import TinmanLogo from './TinmanLogo.jsx';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
@@ -8,9 +9,9 @@ import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 function MainApp() {
   return (
     <>
-      <div style={{ marginTop: "64px" }}>
+      <div style={{ marginTop: '64px' }}>
         <MyTabs />
-        <div style={{ padding: "16px" }}>
+        <div style={{ padding: '16px' }}>
           <Outlet />
         </div>
       </div>
@@ -33,25 +34,25 @@ function useRouteMatch(patterns) {
 }
 
 function MyTabs() {
-  const routeMatch = useRouteMatch(["/", "/graficos"]);
+  const routeMatch = useRouteMatch(['/', '/graficos']);
   const currentTab = routeMatch?.pattern?.path;
 
   return (
     <AppBar position="fixed">
       <Tabs
         sx={{
-          backgroundImage: `linear-gradient(to bottom, #2A2831, #334144)`,
-          color: "#FFFFFF",
+          backgroundImage: 'linear-gradient(to bottom, #2A2831, #334144)',
+          color: '#FFFFFF',
         }}
         value={currentTab}
         TabIndicatorProps={{
-          style: { backgroundColor: "#FFFFFF" },
+          style: { backgroundColor: '#FFFFFF' },
         }}
       >
         <Tab
           label={<TinmanLogo />}
           disabled
-          sx={{ pointerEvents: "none" }}
+          sx={{ pointerEvents: 'none' }}
         />
         <Tab
           label="Graficos"
@@ -60,8 +61,8 @@ function MyTabs() {
           component={NavLink}
           icon={<LeaderboardIcon />}
           sx={{
-            color: currentTab === "/graficos" ? "#FFFFFF" : "#888888",
-            "&.Mui-selected": { color: "#FFFFFF" },
+            color: currentTab === '/graficos' ? '#FFFFFF' : '#888888',
+            '&.Mui-selected': { color: '#FFFFFF' },
           }}
         />
         <Tab
@@ -69,10 +70,10 @@ function MyTabs() {
           value="/"
           to="/"
           component={NavLink}
-          icon={<VisibilityIcon />}
+          icon={currentTab === '/' ? <VisibilityIcon /> : <VisibilityOffIcon />}
           sx={{
-            color: currentTab === "/" ? "#FFFFFF" : "#888888",
-            "&.Mui-selected": { color: "#FFFFFF" },
+            color: currentTab === '/' ? '#FFFFFF' : '#888888',
+            '&.Mui-selected': { color: '#FFFFFF' },
           }}
         />
       </Tabs>
