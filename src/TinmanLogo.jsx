@@ -1,6 +1,6 @@
-import Tinman from './img/tinCanManInc.png';
+import Tinman from './img/gitfish.png';
 
-function TinmanLogo({size = 32, center = false}){
+function TinmanLogo({size = 55, center = false}){
 	return(
 		<img src={Tinman} alt="lata feliz"
 		 style={{

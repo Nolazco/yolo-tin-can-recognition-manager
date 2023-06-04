@@ -1,31 +1,33 @@
 import * as React from 'react';
 import {useRef, useEffect, useCallback} from 'react';
-import TinmanLogo from './TinmanLogo';
 
 /************* Declaración de la camara*/
 
-function Camara(){
-	const vid = useRef(null);
-	const openCamera = useCallback(async () => {
-		const stream = await navigator.mediaDevices.getUserMedia({video : true});
-		vid.current.srcObject = stream;
-	},[vid]);
-	
-	useEffect(() => {
-		openCamera();
-	});
+function Camara() {
+  const vid = useRef(null);
 
-	return( /************* Cuerpo del programa */
-	<>
+  const openCamera = useCallback(async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      if (vid.current) {
+        vid.current.srcObject = stream;
+      }
+    } catch (error) {
+      console.error('Error accessing camera:', error);
+    }
+  }, []);
 
-	<div className='rowCam'>
-			{/*<video class="esp-cam" autoPlay ref={vid}/>*/}
-		<img className="esp-cam" src="http://localhost:8080"/>
-  </div>
- 
-	</>
+  useEffect(() => {
+    openCamera();
+  }, [openCamera]);
 
-	);
-
+  return (
+    <>
+      <div className='rowCam'>
+        <video className="bSlate" autoPlay ref={vid} />
+      </div>
+    </>
+  );
 }
+
 export default Camara;

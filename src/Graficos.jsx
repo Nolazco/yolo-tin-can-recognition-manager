@@ -1,58 +1,89 @@
-import Box from '@mui/material/Box';
-import { VictoryBar, VictoryChart, VictoryAxis,
-        VictoryTheme, VictoryStack, VictoryLine } from 'victory';
-import {useState, useEffect, useCallback} from "react";
-import app  from "./firebase";
-/************* Declaración graficos*/
+import React from 'react';
+import { VictoryPie, VictoryLabel, VictoryChart, VictoryHistogram, VictoryAxis, VictoryPortal } from 'victory';
 
-function Graficos(){
-	let [data, setData] = useState([]);
-  let good_ref = app.database().ref("/buenas");
- const onDataChange = useCallback(snapshot => {
-	 // Obtiene los datos en un objeto
-   let _d = snapshot.val();
-   console.log(data);
-   setData([ ...data, { x: (new Date(_d.fech)).getMilliseconds(), y: _d.promedio }]);
- }, [setData]);
-  
+function Graficos() { //Datos placeholder, cambiar a discreción
+  const pieChartData = [
+    { x: 'A', y: 40 },
+    { x: 'B', y: 20 },
+    { x: 'C', y: 30 },
+    { x: 'D', y: 10 },
+  ];
 
-  useEffect(() => {
-   // Obtén una referencia a la ubicación de los datos en la base de datos
-   const database = app.database();
-   const dataRef = database.ref('/buenas');
-   // Suscríbete a los cambios en los datos
-    dataRef.on('value', onDataChange);
-  
-   // Limpia la suscripción cuando el componente se desmonta
-   return () => {
-     dataRef.off('value', onDataChange);
-   };
-	}, [onDataChange]);
+  const histogramData = [
+    { x: 0, y: 25 },
+    { x: 1, y: 20 },
+    { x: 2, y: 15 },
+    { x: 3, y: 10 },
+    { x: 4, y: 5 },
+    { x: 4, y: 15 },
+    { x: 4, y: 10 },
+    { x: 4, y: 5 },
+    { x: 4, y: 2 },
+    { x: 5, y: 10 },
+    { x: 5, y: 5 },
+    { x: 5, y: 2 },
+    { x: 6, y: 8 },
+    { x: 6, y: 3 },
+    { x: 6, y: 1 },
+  ];
 
-
-	return( /************* Cuerpo del programa */
-	<>
-		<Box style={{
-	        	width: "35pc",
-	        	height: "35pc",
-						margin: 'auto',
-	        }}>
-			<VictoryChart
-			  theme={VictoryTheme.material}
-			>
-			  <VictoryLine
-			    style={{
-			      data: { stroke: "#c43a31" },
-			      parent: { border: "1px solid #ccc"}
-			    }}
-			    data={data}
-			/>
-			</VictoryChart>
-		</Box>
-	</>
-
-	);
-
+  return (
+    <div className="graficos-container">
+      <div className="chart-container">
+        <VictoryChart height={300} width={400}>
+          <VictoryPie
+            data={pieChartData}
+            colorScale={['#FF6347', '#FFA500', '#FFD700', '#ADFF2F']}
+            labelComponent={
+              <VictoryLabel
+                renderInPortal
+                style={{ fontSize: 12, fill: '#FFFFFF' }}
+                dy={-8}
+              />
+            }
+            labels={({ datum }) => `${datum.y}%`}
+            labelRadius={({ innerRadius }) => innerRadius + 20}
+            innerRadius={50}
+          />
+        </VictoryChart>
+      </div>
+      <div className="chart-container">
+        <VictoryChart height={300} width={400}>
+          <VictoryHistogram
+            data={histogramData}
+            binSpacing={2}
+            style={{
+              data: { fill: '#FF6347' },
+            }}
+            x="x"
+            y="y"
+            labels={({ datum }) => datum.y}
+            labelComponent={
+              <VictoryPortal>
+                <VictoryLabel
+                  style={{ fill: '#FFFFFF', fontSize: 10 }}
+                  dy={-10}
+                />
+              </VictoryPortal>
+            }
+          />
+          <VictoryAxis
+            label="hour"
+            style={{
+              axisLabel: { padding: 30 },
+            }}
+          />
+          <VictoryAxis
+            dependentAxis
+            label="Cans"
+            style={{
+              axisLabel: { padding: 40 },
+            }}
+          />
+        </VictoryChart>
+      </div>
+    </div>
+  );
 }
 
 export default Graficos;
