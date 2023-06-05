@@ -1,5 +1,5 @@
 import React from 'react';
-import { VictoryPie, VictoryLabel, VictoryBar, VictoryChart, VictoryAxis, VictoryLegend } from 'victory';
+import { VictoryTheme, VictoryPie, VictoryLabel, VictoryBar, VictoryChart, VictoryAxis, VictoryLegend } from 'victory';
 import { useEffect, useState } from 'react';
 import firebase from './firebase';
 import './App.css'; // Import the CSS file
@@ -71,14 +71,13 @@ function Graficos() {
         </VictoryChart>
       </div>
       <div className="chart-container">
-        <div className="chart-text chart-text-highlight">Volumen - Histogram</div>
+        <div className="chart-text chart-text-highlight">Ultimos cinco periodos - Histograma</div>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <VictoryChart height={300} width={400} style={{ backgroundColor: 'white', parent: { backgroundColor: 'white' } }}>
+          <VictoryChart theme={VictoryTheme.material} height={300} width={400} style={{ backgroundColor: 'white', parent: { backgroundColor: 'white' } }}>
             <VictoryAxis
               style={{
                 axisLabel: { fill: 'black' },
                 tickLabels: { fill: 'black' },
-                padding: 40,
               }}
               dependentAxis
               domain={[0, 100]}
@@ -87,9 +86,9 @@ function Graficos() {
             <VictoryAxis
               style={{
                 axis: { stroke: 'black' },
-                ticks: { stroke: 'white' },
+                ticks: { stroke: 'gray' },
                 tickLabels: { fill: 'white' },
-                axisLabel: { fill: 'white' },
+                axisLabel: { fill: 'gray' },
                 grid: {
                   stroke: ({ tick }) => tick % 2 === 0 ? theme.colors.grey : theme.colors.cloud,
                   strokeDasharray: 5,
