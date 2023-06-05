@@ -39,6 +39,13 @@ function Graficos() {
   const ultimasBuenas = buenasData.slice(Math.max(buenasData.length - 5, 0));
   const ultimasMalas = malasData.slice(Math.max(malasData.length - 5, 0));
 
+  const theme = {
+    colors: {
+      grey: 'gray',
+      cloud: '#C5C6D0',
+    },
+  };
+
   return (
     <div className="graficos-container">
       <div className="chart-container">
@@ -64,7 +71,7 @@ function Graficos() {
         </VictoryChart>
       </div>
       <div className="chart-container">
-        <div className="chart-text chart-text-highlight">Volumen - Historigram</div>
+        <div className="chart-text chart-text-highlight">Volumen - Histogram</div>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <VictoryChart height={300} width={400} style={{ backgroundColor: 'white', parent: { backgroundColor: 'white' } }}>
             <VictoryAxis
@@ -76,6 +83,19 @@ function Graficos() {
               dependentAxis
               domain={[0, 100]}
               tickValues={[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]}
+            />
+            <VictoryAxis
+              style={{
+                axis: { stroke: 'black' },
+                ticks: { stroke: 'white' },
+                tickLabels: { fill: 'white' },
+                axisLabel: { fill: 'white' },
+                grid: {
+                  stroke: ({ tick }) => tick % 2 === 0 ? theme.colors.grey : theme.colors.cloud,
+                  strokeDasharray: 5,
+                  transform: 'translateX(2.5%) scale(0.95,1) ',
+                },
+              }}
             />
             <VictoryBar
               data={ultimasBuenas.map((item, index) => ({
@@ -93,31 +113,23 @@ function Graficos() {
               style={{ data: { fill: 'red' } }}
               barWidth={15}
             />
-            <VictoryAxis
-              style={{
-                axis: { stroke: 'gray' },
-                ticks: { stroke: 'white' },
-                tickLabels: { fill: 'white' },
-                axisLabel: { fill: 'white' },
-              }}
-            />
             <VictoryLegend
               x={120}
               y={266}
               orientation="horizontal"
               gutter={20}
-              style={ { border: { stroke: "black" } } }
+              style={{ border: { stroke: 'black' } }}
               data={[
-                { name: "Malas", symbol: { fill: "red", type: "star" } },
-                { name: "Buenas", symbol: { fill: "blue", type: "star" } }
+                { name: 'Malas', symbol: { fill: 'red', type: 'star' } },
+                { name: 'Buenas', symbol: { fill: 'blue', type: 'star' } }
               ]}
             />
             <VictoryAxis
               dependentAxis
               label="Promedio"
               style={{
-                axis: { stroke: 'gray' },
-                ticks: { stroke: 'gray' },
+                axis: { stroke: theme.colors.grey },
+                ticks: { stroke: theme.colors.grey },
                 axisLabel: { padding: 30 },
               }}
             />
