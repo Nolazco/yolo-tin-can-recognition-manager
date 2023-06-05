@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppBar, Tabs, Tab } from '@mui/material';
-import { Outlet, Link, matchPath, useLocation, NavLink } from 'react-router-dom';
+import { Outlet, matchPath, useLocation, NavLink } from 'react-router-dom';
 import TinmanLogo from './TinmanLogo.jsx';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { VictoryPie, VictoryLabel, VictoryBar, VictoryChart, VictoryHistogram, VictoryAxis, VictoryPortal, VictoryLegend } from 'victory';
+import { VictoryPie, VictoryLabel, VictoryBar, VictoryChart, VictoryAxis, VictoryLegend } from 'victory';
 import { useEffect, useState } from 'react';
 import firebase from './firebase';
 import './App.css'; // Import the CSS file
