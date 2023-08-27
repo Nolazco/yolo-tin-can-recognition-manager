@@ -1,12 +1,22 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import './App.css';
-import Cam from './Camara';
+import Camara from './Camara.jsx';
+import Graficos from './Graficos.jsx';
+import React from "react";
+import MainApp from "./MainApp";
+
 
 const routes = createBrowserRouter([
-  { path: '/', element: <Cam />},
+  {path: '/', element: <MainApp/>, children: [
+    {path: '/', element: <Camara />, index: true},
+    {path: '/graficos', element: <Graficos />}
+  ]}
 ]);
 
+
+
 function App() {
+
   return (
     <RouterProvider router={routes} />
   );
